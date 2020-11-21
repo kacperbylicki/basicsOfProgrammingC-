@@ -20,7 +20,7 @@ namespace BeforeExam
 
         private static void Main(string[] args)
         {
-            Console.Write("Input number: ");
+            Console.Write("Enter number: ");
 
             string number = Console.ReadLine();
 
