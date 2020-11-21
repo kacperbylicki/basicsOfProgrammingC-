@@ -4,6 +4,18 @@ namespace ChristmasTree
 {
     class Program
     {
+        
+        private static uint TestParse(string number)
+        {
+            if (uint.TryParse(number, out uint numberUint) == false)
+            {
+                Console.WriteLine("Wrong Format -- Natural number expected");
+                Environment.Exit(0); 
+            }
+
+            return numberUint;
+        }
+        
         private static void ShowChristmasTree(uint treeHeight, uint trunkHeight)
         {
             for (uint height = 1; height <= treeHeight; height++)
@@ -36,26 +48,13 @@ namespace ChristmasTree
         {
             Console.Write("Enter tree height: ");
 
-            string treeHeight = Console.ReadLine();
+            uint treeHeightUint = TestParse(Console.ReadLine());
 
-            if (uint.TryParse(treeHeight, out uint treeHeightUint) == false)
-            {
-                Console.WriteLine("Wrong Format -- Natural number expected");
-                return;
-            }
-            
             Console.Write("Enter tree trunk height: ");
 
-            string treeTrunkHeight = Console.ReadLine();
-
-            if (uint.TryParse(treeTrunkHeight, out uint treeTrunkHeightUint) == false)
-            {
-                Console.WriteLine("Wrong Format -- Natural number expected");
-            }
-            else
-            {
-                ShowChristmasTree(treeHeightUint, treeTrunkHeightUint);
-            }
+            uint treeTrunkHeightUint = TestParse(Console.ReadLine());
+            
+            ShowChristmasTree(treeHeightUint, treeTrunkHeightUint);
         }
     }
 }
